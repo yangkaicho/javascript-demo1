@@ -5,20 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>樂透號碼預測</title>
 </head>
 
 <body>
     <h1>樂透號碼預測</h1>
     <script>
-        let arr1 = []
-        console.log(arr1);
-        arr1.push("jerry")
-        arr1.push(175.4)
-        arr1.push(56)
-        console.log(arr1);
-        console.log(arr1.length);
-        console.log(arr1[0]);
+        const compare = (a, b) => (a - b);
         //函式宣告
         //六個不重複的號碼
         function randInt(start, end, count = 6) {
@@ -32,6 +25,10 @@
                     lotto.push(x);
                 }
             } while (lotto.length != count);
+            //a-b>
+            lotto.sort(compare);
+
+            //lotto.push(Math.random() * (end - start + 1)) + start);
 
 
 
@@ -39,12 +36,32 @@
 
             return lotto;
         }
+        let lotto = [];
 
+        let counter = prompt("請輸入預測次數");
+        for (let i = 0; i < counter; i++) {
+            lottoNumber = randInt(1, 49, 6);
+            lotto.push(lottoNumber);
+            //console.log(lottoNumber,lottoNumber.join(","));
+        }
+        console.log(lotto)
+        let tempStr = "<ul>";
+        for (let i = 0; i < lotto.length; i++) {
+            5
+            console.log(lotto[i].join(","));
+            tempStr += `<li>${lotto[i].join(",")}</li > `;
+            // for (let j = 0; j < lotto[i].length; j++) {
+            //     console.log(lotto[i][j]);
+            // }
+        }
+        tempStr += "</ul>";
+        console.log(tempStr);
+        document.write(tempStr);
 
 
         lottoNumber = randInt(1, 49, 6);
         console.log(lottoNumber, lottoNumber.join(","));
-        document.write(`<h2 style="color:red">${lottoNumber.join("|")}</h2>`)
+        //document.write(`< h2 style = "color:red" > ${lottoNumber.join("|")}</h2 >`)
 
 
 
